@@ -1,10 +1,10 @@
-package com.nutcache.challenge.Management.of.People;
+package com.nutcache.challenge_people_management;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ManagementOfPeopleApplicationTests {
+class ChallengePeopleManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
