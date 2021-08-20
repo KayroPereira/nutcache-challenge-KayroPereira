@@ -1,13 +1,13 @@
-package com.nutcache.challenge.Management.of.People;
+package com.nutcache.challenge_people_management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ManagementOfPeopleApplication {
+public class ChallengePeopleManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ManagementOfPeopleApplication.class, args);
+		SpringApplication.run(ChallengePeopleManagementApplication.class, args);
 	}
 
 }
