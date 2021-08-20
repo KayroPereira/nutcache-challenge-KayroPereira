@@ -59,3 +59,12 @@ alter table PERSON
    add constraint FK_PERSON_RL_PERSON_GENDER foreign key (GENDER_ID)
       references GENDER (GENDER_ID)
       on delete restrict on update restrict;
+
+/*==============================================================*/
+/* Index: POPULATED GENDER TABLE                                */
+/*==============================================================*/
+insert into gender (gender_description) values ('I prefer not to inform');
+insert into gender (gender_description) values ('Female');
+insert into gender (gender_description) values ('Male');
+insert into gender (gender_description) values ('not binary');
+
