@@ -16,7 +16,7 @@ public class Gender {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gender_id", nullable = false)
+    @Column(name = "gender_id")
     private Long id;
 
     @Column(name = "gender_description", nullable = false)
