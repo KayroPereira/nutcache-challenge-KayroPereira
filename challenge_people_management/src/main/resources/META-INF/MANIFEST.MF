@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.nutcache.challenge_people_management.ChallengePeopleMana
+ gementApplication
+
