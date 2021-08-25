@@ -1,37 +1,16 @@
 package com.nutcache.challenge_people_management.dto;
 
-import com.nutcache.challenge_people_management.entity.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/*
-    insert into person (gender_id, person_name, person_birth_date, person_email, person_cpf, person_start_date, person_team)
-    values (3, 'Kayro Pereira', '09-03-1983', 'kayrofellyxbr@gmail.com', '00999618490', '20-08-2021', 'Dev');
-    insert into person (gender_id, person_name, person_birth_date, person_email, person_cpf, person_start_date, person_team)
-    values (2, 'Andreza Michelle', '14-05-1981', 'andreza.mcp@gmail.com', '03930242451', '19-08-2021', 'User');
-
-    {
-    "name": "Andreza Michelle",
-    "birthDate": "14-05-1981",
-    "email": "andreza.mcp@gmail.com",
-    "cpf": "13886600084",
-    "team": "User",
-    "gender": {
-        "id": 2,
-        "description": "Female"
-    }
-}
- */
 @Data
 @Builder
 @AllArgsConstructor
@@ -40,21 +19,21 @@ public class PersonDTO {
 
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{parameter.missing}")
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "{parameter.missing}")
     private String birthDate;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "{parameter.missing}")
+    @Email(message = "{parameter.format.invalid}")
     private String email;
 
-    @NotBlank
-    @CPF
+    @NotBlank(message = "{parameter.missing}")
+    @CPF(message = "{parameter.format.invalid}")
     private String cpf;
 
-    @NotBlank
+    @NotBlank(message = "{parameter.missing}")
     private String startDate = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDateTime.now());
 
     private String team;

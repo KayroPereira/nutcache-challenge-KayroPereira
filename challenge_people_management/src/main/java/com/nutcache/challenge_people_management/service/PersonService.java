@@ -9,6 +9,7 @@ import com.nutcache.challenge_people_management.mapper.PersonMapper;
 import com.nutcache.challenge_people_management.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class PersonService {
 
         return MessageResponseDTO.builder()
                 .message(String.format("Create person ID: %d", save(personDTO).getId()))
+                .status(HttpStatus.CREATED.value())
                 .build();
     }
 
@@ -48,6 +50,7 @@ public class PersonService {
 
         return MessageResponseDTO.builder()
                 .message(String.format("Updated person Id: %d", save(personUpdate).getId()))
+                .status(HttpStatus.OK.value())
                 .build();
     }
 
@@ -59,6 +62,7 @@ public class PersonService {
 
         return MessageResponseDTO.builder()
                 .message(String.format("Updated person Id: %d", save(personDTO).getId()))
+                .status(HttpStatus.OK.value())
                 .build();
     }
 
@@ -83,6 +87,7 @@ public class PersonService {
 
         return MessageResponseDTO.builder()
                 .message(String.format("Person deleted Id: %d", id))
+                .status(HttpStatus.OK.value())
                 .build();
     }
 
