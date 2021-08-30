@@ -1,0 +1,64 @@
+<section>
+  <mat-card style="margin: 0px 20px">
+    <mat-card-content style="display: grid;">
+      <section>
+          <mat-form-field appearance="legacy" style="width: 60%;">
+            <input matInput placeholder="Name" [(ngModel)]='person.name'>
+            <mat-icon matSuffix>create</mat-icon>
+          </mat-form-field>
+    
+          <mat-form-field appearance="legacy" style="width: 60%;">
+            <input matInput placeholder="Email" [(ngModel)]='person.email' type="email" name='email'>
+            <mat-icon matSuffix>create</mat-icon>
+          </mat-form-field> 
+      </section>
+
+      <section style="display: flex;">
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="CPF" [(ngModel)]='person.cpf' pattern="[0-9]+$">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="margin-left: 20px;">
+          <mat-label>Birth Date</mat-label>
+          <input matInput [matDatepicker]="picker" [max]="maxDate" [(ngModel)]='date' name="birthDate" (dateChange)="addEventDatePicker('change', $event)" disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker disabled="false"></mat-datepicker>
+        </mat-form-field>
+
+        <app-gender style="margin-left: 20px;" 
+              [indexSelect]="selectedGender"
+              (selectedOption)="selectedOptionGender($event)">
+        </app-gender>
+
+        <app-team style="margin-left: 20px;" 
+              [indexSelect]="selectedTeam"
+              (selectedOption)="selectedOptionTeam($event)">
+        </app-team>
+      </section>
+
+      <section>
+        <button mat-icon-button color="accent" (click)='getPersons()'>
+          <mat-icon>cached</mat-icon>
+        </button>
+  
+        <button mat-icon-button color="primary" (click)='savePerson(person)'>
+          <mat-icon>save</mat-icon>
+        </button>
+  
+        <button mat-icon-button color="warm" (click)='clear()'>
+          <mat-icon>clear</mat-icon>
+        </button>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<mat-card fxFlex="33%" style="margin: 5px 20px;">
+  <mat-selection-list [style.overflow]="'auto'" [style.height.px]="'300'">
+    <app-list-person *ngFor="let p of persons"
+      [person]="p"
+      (updatePerson)="savePerson($event)"
+      (deletePerson)="deletePerson($event)">
+    </app-list-person>
+  </mat-selection-list>
+</mat-card>

@@ -61,7 +61,7 @@ public class PanelTablePerson extends JPanel implements MouseListener, RefreshTa
 				new Object[][] {
 				},
 				new String[] {
-					"Select", "Name", "Email", "Star Date", "Team"
+					"Select", "Name", "Email", "Start Date", "Team"
 				}
 			){
 				Class[] columnTypes = new Class[] {
