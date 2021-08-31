@@ -1,0 +1,8 @@
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Team</mat-label>
+    <mat-select  name="team" [(ngModel)]='optionSelected' (selectionChange)="sendEvent($event.value)">
+      <mat-option *ngFor="let team of teams" [value]=team.value>{{ team.description }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

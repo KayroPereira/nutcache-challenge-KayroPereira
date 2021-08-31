@@ -1,0 +1,9 @@
+
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select  name="gender" [(ngModel)]='optionSelected' (selectionChange)="sendEvent($event.value)">
+      <mat-option *ngFor="let gender of genders" [value]=gender.id>{{ gender.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
